@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <!-- Tree view to show data leads -->
+        <record id="view_motion_leads_tree" model="ir.ui.view">
+            <field name="name">motion.leads.tree</field>
+            <field name="model">motion.leads</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="phone_number"/>
+                    <field name="department"/>
+                    <field name="curr_time"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action of the tree view -->
+        <record id="action_motion_leads_tree" model="ir.actions.act_window">
+            <field name="name">Leads</field>
+            <field name="res_model">motion.leads</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_motion_leads_tree"/>
+        </record>
+
+        <!-- Module menu -->
+        <menuitem id="menu_motion_leads" name="Leads" parent="marketing_menu" action="action_motion_leads_tree"/>
+    </data>
+</odoo>

@@ -1,0 +1,6 @@
+<odoo>
+    <data>
+        <menuitem id="marketing_menu" name="Marketing" sequence="10"
+                  web_icon="marketing,static/description/icon.png"/>
+    </data>
+</odoo>
