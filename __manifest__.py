@@ -14,6 +14,7 @@
 
     'version': '1.0',
     'data': [
+        'views/views.xml',
         'views/leads.xml'
     ],
     'installable': True,

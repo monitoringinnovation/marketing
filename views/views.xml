@@ -1,6 +1,7 @@
 <odoo>
     <data>
-        <menuitem id="marketing_menu" name="Marketing" sequence="10"
-                  web_icon="marketing,static/description/icon.png"/>
+        <menuitem id="motion_marketing" name="Marketing" web_icon="marketing,static/description/icon.png"/>
+        <!-- Marketing menu -->
+        <menuitem id="marketing_menu" name="Clientes" parent="motion_marketing"/>
     </data>
 </odoo>
