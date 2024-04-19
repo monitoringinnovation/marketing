@@ -71,7 +71,7 @@ class leadsApi(http.Controller):
             )
 
     @http.route(
-        '/api/v1/marketing/leads/',
+        '/api/v1/marketing/leads',
         type='http', auth='public', methos=['GET'], cors='*', csrf=False)
     def leads(self):
         leads = request.env['motion.leads'].sudo().search([])
