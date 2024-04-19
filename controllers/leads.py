@@ -27,7 +27,7 @@ class leadsApi(http.Controller):
     # Save leads data
     @http.route(
         '/api/v1/marketing/leads/save-leads',
-        type='http', auth='none', methos=['POST'], cors='*', csrf=False)
+        type='http', auth='public', methos=['POST'], cors='*', csrf=False)
     def save_lead_data(self, **post):
         try:
             name = post['name']
@@ -69,3 +69,28 @@ class leadsApi(http.Controller):
                 status=500,
                 mimetype='application/json'
             )
+
+    @http.route(
+        '/api/v1/marketing/leads/',
+        type='http', auth='public', methos=['GET'], cors='*', csrf=False)
+    def leads(self):
+        leads = request.env['motion.leads'].sudo().search([])
+        lead_data = []
+        for lead in leads:
+            lead_data.append({
+                'name': lead.name,
+                'email': lead.email,
+                'phone_number': lead.phone_number,
+                'department': lead.department,
+                'message': lead.message,
+                'curr_time': lead.curr_time.strftime("%Y-%m-%d %H:%M:%S"),
+            })
+        res = {
+            "jsonrpc": "2.0",
+            "result": lead_data
+        }
+        return http.Response(
+            json.dumps(res),
+            status=200,
+            mimetype='application/json'
+        )
