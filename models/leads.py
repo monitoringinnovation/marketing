@@ -3,8 +3,7 @@ from odoo import fields, models
 
 class leadsClients(models.Model):
     _name = 'motion.leads'
-    _description = 'Flujo de datos de las landing'
-    _menu_display = True
+    _description = 'Landing data'
 
     name = fields.Char(string='Nombre')
     email = fields.Char(string='Email')

@@ -22,11 +22,11 @@ def error_response(error, msg, code):
     }
 
 
-class marketingApi(http.Controller):
+class leadsApi(http.Controller):
 
     # Save leads data
     @http.route(
-        '/api/v1/marketing/save-leads',
+        '/api/v1/marketing/leads/save-leads',
         type='http', auth='none', methos=['POST'], cors='*', csrf=False)
     def save_lead_data(self, **post):
         try:

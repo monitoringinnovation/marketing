@@ -14,6 +14,7 @@
 
     'version': '1.0',
     'data': [
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/leads.xml'
     ],
