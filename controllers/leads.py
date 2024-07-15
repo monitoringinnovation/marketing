@@ -27,7 +27,7 @@ class leadsApi(http.Controller):
     # Save leads data
     @http.route(
         '/api/v1/marketing/leads/save-leads',
-        type='http', auth='public', methos=['POST'], cors='*', csrf=False)
+        type='http', auth='public', methos=['POST', 'OPTIONS'], cors='*', csrf=False)
     def save_lead_data(self, **post):
         try:
             name = post['name']
