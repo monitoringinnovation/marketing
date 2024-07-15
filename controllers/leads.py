@@ -33,8 +33,9 @@ class leadsApi(http.Controller):
             name = post['name']
             email = post['email']
             phone_number = post['number']
-            department = post['department'] if 'department' in post else 'Sin departamento especificado'
+            city = post['city'] if 'city' in post else 'Sin departamento especificado'
             message = post['message'] or 'Sin mensaje especifiacado'
+            origin = post['origin'] or 'Sin origen especifiacado'
         except KeyError as e:
             msg = "Missing data"
             res = error_response(e, msg, 400)
@@ -49,8 +50,9 @@ class leadsApi(http.Controller):
                 'name': name,
                 'email': email,
                 'phone_number': phone_number,
-                'department': department or 'Sin departamento especificado',
-                'message': message
+                'city': city or 'Sin departamento especificado',
+                'message': message,
+                'origin': origin
             }
             leads.create(new_lead)
             res = {
@@ -83,7 +85,7 @@ class leadsApi(http.Controller):
                 'name': lead.name,
                 'email': lead.email,
                 'phone_number': lead.phone_number,
-                'department': lead.department,
+                'city': lead.city,
                 'message': lead.message,
                 'curr_time': lead.curr_time.strftime("%Y-%m-%d %H:%M:%S"),
             })

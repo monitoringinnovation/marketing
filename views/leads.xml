@@ -9,7 +9,7 @@
                     <field name="name"/>
                     <field name="email"/>
                     <field name="phone_number"/>
-                    <field name="department"/>
+                    <field name="city"/>
                     <field name="curr_time"/>
                 </tree>
             </field>
